@@ -353,8 +353,152 @@
             cursor: pointer;
             background: transparent;
             color: rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.15s ease;
             position: relative;
+            user-select: none;
+        }
+
+        .btn-no.crazy-bounce {
+            animation: crazyBounce 0.6s ease;
+        }
+
+        .btn-no.shrinking {
+            animation: noShrink 0.5s ease forwards;
+        }
+
+        .btn-no.spinning {
+            animation: noSpin 0.8s ease;
+        }
+
+        .btn-no.melting {
+            animation: noMelt 0.7s ease forwards;
+        }
+
+        .btn-no.exploding {
+            animation: noExplode 0.6s ease forwards;
+        }
+
+        .btn-no.jelly {
+            animation: noJelly 0.8s ease;
+        }
+
+        .btn-no.earthquake {
+            animation: noEarthquake 0.5s ease;
+        }
+
+        .btn-no.flip3d {
+            animation: noFlip3D 0.7s ease;
+        }
+
+        @keyframes crazyBounce {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            10% { transform: translate(-30px, -50px) rotate(-20deg) scale(1.3); }
+            20% { transform: translate(40px, -30px) rotate(15deg) scale(0.7); }
+            30% { transform: translate(-50px, 20px) rotate(-30deg) scale(1.4); }
+            40% { transform: translate(30px, 40px) rotate(25deg) scale(0.6); }
+            50% { transform: translate(-20px, -60px) rotate(-15deg) scale(1.5); }
+            60% { transform: translate(50px, -20px) rotate(35deg) scale(0.5); }
+            70% { transform: translate(-40px, 30px) rotate(-25deg) scale(1.3); }
+            80% { transform: translate(20px, -40px) rotate(20deg) scale(0.8); }
+            90% { transform: translate(-10px, 10px) rotate(-10deg) scale(1.1); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+
+        @keyframes noShrink {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5) rotate(10deg); opacity: 0.8; }
+            100% { transform: scale(0.5); opacity: 0.6; font-size: 10px; }
+        }
+
+        @keyframes noSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(360deg) scale(0.5); }
+            50% { transform: rotate(720deg) scale(1.5); }
+            75% { transform: rotate(1080deg) scale(0.3); }
+            100% { transform: rotate(1440deg) scale(1); }
+        }
+
+        @keyframes noMelt {
+            0% { transform: scaleY(1) scaleX(1); border-radius: 50px; }
+            30% { transform: scaleY(1.3) scaleX(0.7); border-radius: 50px 50px 20px 20px; }
+            60% { transform: scaleY(0.5) scaleX(1.5); border-radius: 40px; opacity: 0.7; }
+            100% { transform: scaleY(0.2) scaleX(2); border-radius: 10px; opacity: 0.4; }
+        }
+
+        @keyframes noExplode {
+            0% { transform: scale(1); opacity: 1; filter: blur(0); }
+            30% { transform: scale(1.8); opacity: 0.8; filter: blur(0); }
+            60% { transform: scale(2.5); opacity: 0.4; filter: blur(3px); }
+            100% { transform: scale(0.3); opacity: 0.3; filter: blur(0); }
+        }
+
+        @keyframes noJelly {
+            0% { transform: scale(1, 1); }
+            10% { transform: scale(1.25, 0.75); }
+            20% { transform: scale(0.75, 1.25); }
+            30% { transform: scale(1.15, 0.85); }
+            40% { transform: scale(0.95, 1.05); }
+            50% { transform: scale(1.05, 0.95); }
+            60% { transform: scale(1.3, 0.7) rotate(5deg); }
+            70% { transform: scale(0.7, 1.3) rotate(-5deg); }
+            80% { transform: scale(1.1, 0.9) rotate(3deg); }
+            90% { transform: scale(0.95, 1.05) rotate(-1deg); }
+            100% { transform: scale(1, 1) rotate(0deg); }
+        }
+
+        @keyframes noEarthquake {
+            0% { transform: translate(0, 0); }
+            5% { transform: translate(-8px, 5px) rotate(-2deg); }
+            10% { transform: translate(6px, -7px) rotate(3deg); }
+            15% { transform: translate(-10px, 3px) rotate(-1deg); }
+            20% { transform: translate(8px, -5px) rotate(2deg); }
+            25% { transform: translate(-5px, 8px) rotate(-3deg); }
+            30% { transform: translate(10px, -3px) rotate(1deg); }
+            35% { transform: translate(-7px, 6px) rotate(-2deg); }
+            40% { transform: translate(5px, -8px) rotate(3deg); }
+            45% { transform: translate(-3px, 5px) rotate(-1deg); }
+            50% { transform: translate(7px, -4px) rotate(2deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        @keyframes noFlip3D {
+            0% { transform: perspective(400px) rotateY(0deg) rotateX(0deg); }
+            25% { transform: perspective(400px) rotateY(180deg) rotateX(20deg) scale(0.7); }
+            50% { transform: perspective(400px) rotateY(360deg) rotateX(-20deg) scale(1.3); }
+            75% { transform: perspective(400px) rotateY(540deg) rotateX(10deg) scale(0.8); }
+            100% { transform: perspective(400px) rotateY(720deg) rotateX(0deg) scale(1); }
+        }
+
+        /* Broken heart trail from No button */
+        .no-trail-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            animation: noTrailFade 1.2s ease-out forwards;
+        }
+
+        @keyframes noTrailFade {
+            0% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+            50% { opacity: 0.7; transform: scale(1.5) translateY(-30px) rotate(180deg); }
+            100% { opacity: 0; transform: scale(0) translateY(-80px) rotate(360deg); }
+        }
+
+        /* Screen shake effect */
+        .screen-shake {
+            animation: screenShake 0.4s ease;
+        }
+
+        @keyframes screenShake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5px, -3px); }
+            20% { transform: translate(5px, 3px); }
+            30% { transform: translate(-3px, 5px); }
+            40% { transform: translate(3px, -5px); }
+            50% { transform: translate(-5px, 2px); }
+            60% { transform: translate(4px, -2px); }
+            70% { transform: translate(-2px, 4px); }
+            80% { transform: translate(2px, -3px); }
+            90% { transform: translate(-3px, 1px); }
         }
 
         /* ============ CELEBRATION SCREEN ============ */
@@ -844,22 +988,103 @@
             "Please? 🙏💕",
         ];
 
+        const crazyEffects = [
+            'crazy-bounce', 'shrinking', 'spinning', 'melting', 
+            'exploding', 'jelly', 'earthquake', 'flip3d'
+        ];
+        const trailEmojis = ['💔', '😢', '🥺', '😭', '💀', '☠️', '😤', '🙃', '🫠', '👻'];
+
         function moveNoBtn() {
             const btn = document.getElementById('btnNo');
-            const maxX = window.innerWidth - btn.offsetWidth - 50;
-            const maxY = window.innerHeight - btn.offsetHeight - 50;
-            btn.style.position = 'fixed';
-            btn.style.left = Math.random() * maxX + 'px';
-            btn.style.top = Math.random() * maxY + 'px';
-            btn.style.zIndex = '999';
-            btn.textContent = noMessages[noCount % noMessages.length];
-            noCount++;
+            
+            // Pick a random crazy effect
+            const effectClass = crazyEffects[Math.floor(Math.random() * crazyEffects.length)];
+            
+            // Remove all previous effect classes
+            crazyEffects.forEach(c => btn.classList.remove(c));
+            
+            // Force reflow to restart animation
+            void btn.offsetWidth;
+            
+            // Add the new crazy effect
+            btn.classList.add(effectClass);
+            
+            // Spawn broken heart / sad emoji trail
+            spawnNoTrail(btn);
+            
+            // Shake the whole screen!
+            const questionScreen = document.getElementById('questionScreen');
+            questionScreen.classList.remove('screen-shake');
+            void questionScreen.offsetWidth;
+            questionScreen.classList.add('screen-shake');
+            setTimeout(() => questionScreen.classList.remove('screen-shake'), 500);
 
-            // Make yes button bigger each time
-            const yesBtn = document.querySelector('.btn-yes');
-            const currentSize = parseFloat(getComputedStyle(yesBtn).fontSize);
-            yesBtn.style.fontSize = (currentSize + 2) + 'px';
-            yesBtn.style.padding = `${18 + noCount * 3}px ${60 + noCount * 8}px`;
+            // After the animation, teleport the button
+            setTimeout(() => {
+                crazyEffects.forEach(c => btn.classList.remove(c));
+                
+                const maxX = window.innerWidth - btn.offsetWidth - 50;
+                const maxY = window.innerHeight - btn.offsetHeight - 50;
+                btn.style.position = 'fixed';
+                btn.style.left = Math.max(10, Math.random() * maxX) + 'px';
+                btn.style.top = Math.max(10, Math.random() * maxY) + 'px';
+                btn.style.zIndex = '999';
+                btn.textContent = noMessages[noCount % noMessages.length];
+                noCount++;
+                
+                // Change button color randomly to look panicked
+                const hue = Math.random() * 360;
+                btn.style.borderColor = `hsla(${hue}, 70%, 60%, 0.5)`;
+                btn.style.color = `hsla(${hue}, 70%, 70%, 0.6)`;
+                btn.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+                
+                // Shrink the no button over time
+                const currentPadding = Math.max(4, 12 - noCount);
+                const currentFont = Math.max(8, 16 - noCount);
+                btn.style.padding = `${currentPadding}px ${currentPadding * 2}px`;
+                btn.style.fontSize = `${currentFont}px`;
+                
+                // Make yes button bigger each time
+                const yesBtn = document.querySelector('.btn-yes');
+                const yesFontSize = parseFloat(getComputedStyle(yesBtn).fontSize);
+                yesBtn.style.fontSize = (yesFontSize + 3) + 'px';
+                yesBtn.style.padding = `${18 + noCount * 4}px ${60 + noCount * 10}px`;
+                
+                // After many tries, make the No button start fading away
+                if (noCount >= 5) {
+                    btn.style.opacity = Math.max(0.15, 1 - noCount * 0.12);
+                }
+                
+                // After 8+ tries, the No button becomes a Yes!
+                if (noCount >= 8) {
+                    btn.textContent = '...okay, Yes! 💖';
+                    btn.style.color = '#ff69b4';
+                    btn.style.borderColor = '#ff69b4';
+                    btn.style.opacity = '1';
+                    btn.onclick = sayYes;
+                    btn.onmouseover = null;
+                }
+            }, 600);
+        }
+
+        // Spawn trail of emojis from the No button
+        function spawnNoTrail(btn) {
+            const rect = btn.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'no-trail-emoji';
+                    emoji.textContent = trailEmojis[Math.floor(Math.random() * trailEmojis.length)];
+                    emoji.style.left = (cx + (Math.random() - 0.5) * 80) + 'px';
+                    emoji.style.top = (cy + (Math.random() - 0.5) * 60) + 'px';
+                    emoji.style.fontSize = (Math.random() * 20 + 16) + 'px';
+                    document.body.appendChild(emoji);
+                    setTimeout(() => emoji.remove(), 1200);
+                }, i * 80);
+            }
         }
 
         // ============ SAY YES! ============
