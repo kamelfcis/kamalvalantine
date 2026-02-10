@@ -440,6 +440,7 @@
             100% { opacity: 0; transform: scale(0) rotate(180deg) translateY(-50px); }
         }
 
+
         /* ============ CELEBRATION SCREEN ============ */
         .celebration-screen {
             display: none;
@@ -1011,22 +1012,6 @@
             // Change message
             btn.textContent = noMessages[noCount % noMessages.length];
             noCount++;
-
-            // Make button shrink over time
-            const shrinkFactor = Math.max(0.5, 1 - noCount * 0.03);
-            btn.style.transform = `scale(${shrinkFactor})`;
-            btn.style.opacity = Math.max(0.3, 1 - noCount * 0.04);
-
-            // After 10 tries, button starts shaking constantly
-            if (noCount >= 10) {
-                btn.style.animation = 'noDizzy 0.3s ease infinite';
-            }
-
-            // After 15 tries, button becomes tiny
-            if (noCount >= 15) {
-                btn.style.fontSize = '10px';
-                btn.style.padding = '5px 15px';
-            }
 
             // Make yes button bigger & more attractive each time
             const yesBtn = document.querySelector('.btn-yes');
